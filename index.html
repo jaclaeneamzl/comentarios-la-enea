@@ -112,18 +112,28 @@ window.publicar = async function(){
 
     const palabrasProhibidas = [
         "idiota",
+        "maldito",
         "puta",
         "zorra",
         "bobo",
+        "malparido",
+        "hijueputa",
+        "hijueputas",
+        "idiotas",
+        "malparidos",
+        "hp",
+        "hptas",
         "estupido"
     ];
 
     const textoMinusculas = texto.toLowerCase();
 
-    const contienePalabraProhibida =
-    palabrasProhibidas.some(
-        palabra => textoMinusculas.includes(palabra)
+    if (contienePalabraProhibida) {
+    alert(
+        "Por favor utiliza un lenguaje respetuoso. Los comentarios que contengan palabras ofensivas o inapropiadas no serán publicados."
     );
+    return;
+    }
 
     if (contienePalabraProhibida) {
         alert("Tu comentario contiene palabras no permitidas.");
