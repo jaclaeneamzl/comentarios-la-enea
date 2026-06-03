@@ -110,6 +110,26 @@ window.publicar = async function(){
     const texto =
     document.getElementById("comentario").value.trim();
 
+    const palabrasProhibidas = [
+        "idiota",
+        "puta",
+        "zorra",
+        "bobo",
+        "estupido"
+    ];
+
+    const textoMinusculas = texto.toLowerCase();
+
+    const contienePalabraProhibida =
+    palabrasProhibidas.some(
+        palabra => textoMinusculas.includes(palabra)
+    );
+
+    if (contienePalabraProhibida) {
+        alert("Tu comentario contiene palabras no permitidas.");
+        return;
+    }
+
     if(!texto) return;
 
     await addDoc(
